@@ -11,16 +11,6 @@ ___
 
 Olá desenvolvedor Python, pronto para participar do nosso processo de recrutamento?
 
-### Sobre a Vaga
-
-- Empresa: Climatempo;
-- Cargo: Desenvolvedor Python (CLT);
-- VR e VT;
-- Home Office após período de experiência;
-- Flexibilidade no horário de trabalho para acompanhar eventos de tecnologia;
-- Local: Parque Tecnológico - São José dos Campos (www.pqtec.org.br).
-
-
 ### Requisitos
 
 Bons conhecimentos em:
