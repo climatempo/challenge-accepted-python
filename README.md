@@ -24,11 +24,6 @@ Bons conhecimentos em:
 - SQL
 - NoSQL
 
-IMPORTANTE:
-
-- Residir no Vale do Paraíba ou nas proximidades.
-
-
 ### O Desafio
 
 - Ler dois arquivos NetCDF com dados de temperatura, sendo um com *dados de previsão* e o outro com *dados observados*;
