@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+jupyter = "*"
+ipykernel = "*"
+
+[packages]
+numpy = "*"
+shapely = "*"
+pyshp = "*"
+psycopg2 = "*"
+pandas = "*"
+xarray = "*"
+gdal = "==2.4.2"
+matplotlib = "*"
+scipy = "*"
+netcdf4 = "*"
+
+[requires]
+python_version = "3.8"
