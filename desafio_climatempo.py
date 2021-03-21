@@ -142,3 +142,6 @@ ax.xaxis.set_major_formatter(date_format)
 plt.savefig("lat:-23.5489_lon:-46.6388_timeseries_14_to_16_04_2018.png")
 
 #plt.show()
+
+final_netcdf = xr.Dataset.from_dataframe(final_df, sparse=False)
+final_netcdf.to_netcdf('forecast_observation_rmse.nc')
