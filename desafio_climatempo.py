@@ -133,12 +133,12 @@ final_df_sp = final_df.query('lat == {lat} and lon == {lon}'.format(**latitude_l
 
 # Plot time series of final_df_sp dataframe using
 fig, ax = plt.subplots(figsize=(20,9))
-ax.set_title('lat: -23.5489 / lon: -46.6388 Timeseries RMSE from 14/04/2020 to 16/04/2020', fontdict = {'size':22});
+ax.set_title('lat: -23.5489 / lon: -46.6388 Timeseries RMSE from 14/04/2018 to 16/04/2018', fontdict = {'size':22});
 plt.plot(final_df_sp.new_date,final_df_sp.rmse,'-o',lw = 2)
 
 date_format = mpl.dates.DateFormatter('%d/%m/%Y')
 ax.xaxis.set_major_formatter(date_format)
 
-plt.savefig("lat:-23.5489_lon:-46.6388_timeseries_14_to_16_04_2020.png")
+plt.savefig("lat:-23.5489_lon:-46.6388_timeseries_14_to_16_04_2018.png")
 
 #plt.show()
