@@ -25,3 +25,5 @@ Passos de utilização do código desenvolvido para o Python Challenge do Climat
    Para utilizar o netCDF4 é necessário instalra alguns pacotes Python e softwares previamente, a saber: numpy, cython, hdf5 library, LibCurl, HDF4, biblioteca em C do netCDF-4 e cftime. Os requerimentos foram obtidos no site https://unidata.github.io/netcdf4-python/
    
    Neste desafio foi utilizado o Python 3.8 em sua última versão no repositório do Ubuntu 20.04. Como plataforma de programação foi instalado o Jupyter Notebook em um ambiente local criado na minha máquina pessoal. Todos as bibliotecas foram instaladas usando o comando pip presente no Python.
+   
+   O algoritmo, após a instalação das bibliotecas para seu correto funcionamento, para funcionar somente é necessário executar o arquivo Python desafio_climatempo.py e garantir que os arquivos forecast.nc e observation.nc estejam no mesmo diretório que o código Python. 
