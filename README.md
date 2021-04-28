@@ -80,7 +80,7 @@ O processo do desafio deve ser:
 
 3. Após concluir faça um pull request.
 
-5. Envie um e-mail para python@climatempo.com.br com seu **curriculo, pretensão salarial e o link do seu pull request**.
+5. Preencha o [formulario](https://docs.google.com/forms/d/e/1FAIpQLSfPIwojh04iSxIrrOJSyrMvYcStLpoO3luR11ZxBY_pkWsjGA/viewform).
 
 
 ___
