@@ -17,7 +17,7 @@ Exemplo utilizando o o sistema Linux **Ubuntu 20.04.2 LTS**:
 Após o update, instale o **python** com o seguinte comando:
     * `sudo apt - get install python`
 	
-Assim, o Python já estará devidamente instalado. Uma forma alternativa de instalar o Python é através de distribuições para finalidades especificas. Uma distribuição muito popular é a **Anaconda(não será abordado aqui).**
+Assim, o Python já estará devidamente instalado. Uma forma alternativa de instalar o Python é através de distribuições para finalidades especificas. Uma distribuição muito popular é a **Anaconda** (não será abordado aqui).
 
 
 ### Pacotes/bibliotecas utilizadas:
