@@ -33,7 +33,7 @@ for i in np.arange(0,len(data),1):
 	image.savefig('plot2D_interval_'+str(i)+'.png', dpi=600, bbox_inches = 'tight')
 
 # PLOTAGEM DA SÉRIE TEMPORAL
-funcoes.plot_xy(xdata=np.arange(0,len(data),1), ydata=data[0:,8,26], xlabel='Intervalos a cada 6 horas',
+aux.plot_xy(xdata=np.arange(0,len(data),1), ydata=data[0:,8,26], xlabel='Intervalos a cada 6 horas',
 			    ylabel='RMSE', color='grey', fig_name='SP_RMSE.png' )
 
 
