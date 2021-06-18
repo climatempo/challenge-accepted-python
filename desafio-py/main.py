@@ -1,13 +1,7 @@
-import numpy as np 
 import matplotlib.pyplot as plt 
-from netCDF4 import Dataset
-import funcoes
-import cartopy, cartopy.crs as ccrs
-import cartopy.feature as cfeature
-import matplotlib.pyplot as plt
+import aux
 from netCDF4 import Dataset
 import numpy as np
-from cartopy.feature import NaturalEarthFeature, BORDERS
 import glob as gl
 import os
 
@@ -25,16 +19,16 @@ lats     = np.asarray(observation['lat'][:])
 lons     = np.asarray(observation['lon'][:])
 
 # CALCULANDO O RMSE
-rmse_temp = funcoes.rmse(observation=temp_obs, forecast=temp_for, sample=6)
+rmse_temp = aux.rmse(observation=temp_obs, forecast=temp_for, sample=6)
 
 # SALVANDO OS VALORES DO ÍNDICE RMSE EM UM NOVO ARQUIVO NETCDF
-data = funcoes.save_netcdf(data=rmse_temp, times=len(rmse_temp), lats=lats, lons=lons)
+data = aux.save_netcdf(data=rmse_temp, times=len(rmse_temp), lats=lats, lons=lons)
 
 # LOOP PARA PLOTAGEM DAS FIGURAS 2D
 for i in np.arange(0,len(data),1):
 	
 	data = np.array(data)
-	image = funcoes.plot_2d(data=data[i], lats=lats, lons=lons, vmin=0, vmax=data.max(), cmap='binary')
+	image = aux.plot_2d(data=data[i], lats=lats, lons=lons, vmin=0, vmax=data.max(), cmap='binary')
 	image.title('RMSE da temperatura em 2 metros para o intervalo '+str(i), fontweight='bold', fontsize=10, loc='left')
 	image.savefig('plot2D_interval_'+str(i)+'.png', dpi=600, bbox_inches = 'tight')
 
