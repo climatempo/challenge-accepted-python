@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from netCDF4 import Dataset
 
 def rmse(observation, forecast, sample):
-
+	
 	rmse_temp = []
 	for i in np.arange(0,len(observation),sample):
 
