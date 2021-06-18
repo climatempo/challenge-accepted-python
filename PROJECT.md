@@ -14,9 +14,9 @@ Outros pacotes necessários:
 
 ## Passo a passo
 ```bash
-$ git clone 
+$ git clone https://github.com/WilliamCoelho/challenge-accepted-python.git
 
-$ cd desafio-py
+$ cd challenge-accepted-python/desafio-py
 
 $ python main.py
 ```
