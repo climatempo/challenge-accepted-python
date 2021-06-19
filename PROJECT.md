@@ -4,7 +4,7 @@ horas para toda a série, e posteriormente plotar imagens 2D (distribuição esp
 
 Dependências
 ------------
-Outros pacotes necessários:
+Bibliotecas necessárias:
 - Numpy
 - Glob
 - Matplotlib
