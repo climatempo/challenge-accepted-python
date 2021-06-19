@@ -20,6 +20,11 @@ $ cd challenge-accepted-python/desafio-py
 
 $ python main.py
 ```
+## Resultado
+Serão gerados:
+- 12 figuras 2D, para cada intervalo de 6 horas
+- 1 gráfico de linha com a evolução temporal do índice RMSE para um ponto específico sobre São Paulo.
+- 1 arquivo netcdf com os valores do índice RMSE para todos os pontos de grade.
 ## Detalhes do processo
 ### Funções contidas no script aux.py
 Esse script contém todas as funções necessárias para gerar os resultados solicidados no desafio.
