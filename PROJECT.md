@@ -22,11 +22,17 @@ $ python main.py
 ```
 ## Resultado
 Serão gerados:
-- 12 figuras 2D, para cada intervalo de 6 horas.
-- 1 gráfico de linha com a evolução temporal do índice RMSE para um ponto específico sobre São Paulo.
+- 12 figuras 2D, para cada intervalo de 6 horas, como a figura abaixo.
+
+![plot2D_interval_0](https://user-images.githubusercontent.com/28113714/122626069-b79e6580-d07e-11eb-8241-f5a23acd94aa.png)
+
+- 1 gráfico de linha com a evolução temporal do índice RMSE para um ponto específico sobre São Paulo, como a figura abaixo.
+
+![SP_RMSE](https://user-images.githubusercontent.com/28113714/122626104-eddbe500-d07e-11eb-92a2-96005fe2d3f7.png)
+
 - 1 arquivo netcdf com os valores do índice RMSE para todos os pontos de grade.
 ## Detalhes do processo
-### Funções contidas no script aux.py
+### Descrição das funções contidas no script aux.py
 Esse script contém todas as funções necessárias para gerar os resultados solicidados no desafio.
 #### aux.rmse()
 Essa função calcula o índice RMSE com os dados observados e previstos de temperatura, lidos a partir dos arquivos observation.nc e forecast.nc. Os arquivos são calculados para intervalos de 6 em 6 horas, para todo o périodo de disponibilidade dos dados.
