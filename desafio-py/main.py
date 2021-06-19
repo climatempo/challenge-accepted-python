@@ -7,6 +7,7 @@ import os
 
 # LISTANDO O CAMINHO PARA OS ARQUIVOS
 filenames = gl.glob(os.getcwd()+'/*.nc')
+filenames.sort()
 
 # LENDO OS ARQUIVOS NETCDF
 forecast    = Dataset(filenames[0], 'r')
