@@ -24,11 +24,11 @@ $ python main.py
 Serão gerados:
 - 12 figuras 2D, para cada intervalo de 6 horas, como a figura abaixo.
 
-![plot2D_interval_0](https://user-images.githubusercontent.com/28113714/122626069-b79e6580-d07e-11eb-8241-f5a23acd94aa.png | width=80)
+<img src="https://user-images.githubusercontent.com/28113714/122626069-b79e6580-d07e-11eb-8241-f5a23acd94aa.png" width="350" height="350">
 
 - 1 gráfico de linha com a evolução temporal do índice RMSE para um ponto específico sobre São Paulo, como a figura abaixo.
 
-![SP_RMSE](https://user-images.githubusercontent.com/28113714/122626104-eddbe500-d07e-11eb-92a2-96005fe2d3f7.png)
+<img src="https://user-images.githubusercontent.com/28113714/122626104-eddbe500-d07e-11eb-92a2-96005fe2d3f7.png" width="350" height="250">
 
 - 1 arquivo netcdf com os valores do índice RMSE para todos os pontos de grade.
 ## Detalhes do processo
