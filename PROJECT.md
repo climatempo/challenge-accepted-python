@@ -24,7 +24,7 @@ $ python main.py
 Serão gerados:
 - 12 figuras 2D, para cada intervalo de 6 horas, como a figura abaixo.
 
-<img src="https://user-images.githubusercontent.com/28113714/122626069-b79e6580-d07e-11eb-8241-f5a23acd94aa.png" width="350" height="350">
+<img src="https://user-images.githubusercontent.com/28113714/122626069-b79e6580-d07e-11eb-8241-f5a23acd94aa.png" width="350" height="300">
 
 - 1 gráfico de linha com a evolução temporal do índice RMSE para um ponto específico sobre São Paulo, como a figura abaixo.
 
