@@ -13,5 +13,7 @@ Para responder esta questao, os mapas foram plotados chamando rms calculado na q
 4 Questao: Plotar um gráfico da série temporal do índice RMSE para São Paulo (Latitude -23.5489 e Longitude -46.6388, correspondente ao ponto Y: 8 e X: 26 na grade da matriz dos dados)
 Para responder essa questao, o plote foi feito atraves da biblioteca importada (matplotlib), onde foi chamada matriz rms no ponto Y: 8 e X: 26. Portanto, os resultados mostram o grafico do ponto mais proximo das latitudes e longitudes apresentadas na questao (Latitude -23.5489 e Longitude -46.6388. So para enfatizar que no eixo x sao apresentados os 12 intervalos.
 
-
 Observacao: No arquivo rms salvo, nao foram definidos os intervalos, razao pela qual no mapa e no grafico plotado foram inseridas as designacoes referentes a cada periodo.
+
+
+
