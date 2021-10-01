@@ -11,7 +11,7 @@ As bibliotecas utilizadas aqui estão listadas abaixo:
 <a href="https://cesarofs.github.io/">
  <img style="border-radius: 50%;" src="https://raw.githubusercontent.com/cesarofs/cesarofs.github.io/master/avatar.JPG" width="100px;" alt=""/>
  <br />
- <sub><b>César de Oliveira Ferreira Silva</b></sub></a> <a href="https://cesarofs.github.io/" title="Website"></a>
+ <sub><b>Website</b></sub></a> <a href="https://cesarofs.github.io/" title="Website"></a>
 
 Feito por César de Oliveira Ferreira Silva!
 
