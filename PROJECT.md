@@ -23,6 +23,10 @@ It is recommended to run it using Jupyter Notebook. The Anaconda distribution ha
 
 In the notebook, there are text boxes before each coding line explaining and justifying the decisions made. 
 
+In this notebook, the NetCDF files are retrieved from my GitHub repository via URL. So there is no need to download it locally. 
+
+In the last coding line, the RMSE results are exported in a NetCDF file, and you can change the destination folder path if needed.
+
 ### Author
 ---
 
