@@ -5,6 +5,7 @@ The whole implementation of the challenge is in a Jupyter Notebook file in the r
 If you need to run the script, you can run it in Google Colab environment as is (including pip commands) or locally, being necessary to run pip commands only if the libraries are not installed.
 
 ### Pre-requisites
+---
 The following libraries were used for the development of this Jupyter Notebook file:
 
 XArray
@@ -17,6 +18,7 @@ Scikit-learn
 Matplotlib
 
 ### Execution
+---
 It is recommended to run it using Jupyter Notebook. The Anaconda distribution has the Jupyter Notebook, as well as some pre-installed libraries, such as Pandas.
 
 In the notebook, there are text boxes before each coding line explaining and justifying the decisions made. 
