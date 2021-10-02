@@ -2,9 +2,9 @@
 
 The whole implementation of the challenge is in a Jupyter Notebook file in the root folder of the project, named "RMSE from NetCDF data English.ipynb". It is not necessary to run it to visualize the results, simply open it on Github and you will visualize the maps and graphs in a static way. Only the results of the PIP install have been hidden for aesthetic reasons. 
 
-If you need to run the script, you can run it in Google Colab environment as is (including pip commands) or locally, being necessary to run pip commands only if the libraries are not installed.
+If you need to run the script, you can run it in a Google Colab environment the way it is (including pip commands). If you want to run it locally, it is necessary to run pip commands only if the libraries are not installed yet.
 
-### Pre-requisites
+### Libraries applied in this notebook
 ---
 The following libraries were used for the development of this Jupyter Notebook file:
 
