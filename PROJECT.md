@@ -8,18 +8,21 @@ If you need to run the script, you can run it in a Google Colab environment the 
 ---
 The following libraries were used for the development of this Jupyter Notebook file:
 
-XArray
-Pandas
-GeoPandas
-PyGeoHash
-GeoPlot
-Shapely
-Scikit-learn
-Matplotlib
+- XArray
+- Pandas
+- GeoPandas
+- PyGeoHash
+- GeoPlot
+- Scikit-learn
+- Matplotlib
+- Shapely
+
 
 ### Execution
 ---
 It is recommended to run it using Jupyter Notebook. The Anaconda distribution has the Jupyter Notebook, as well as some pre-installed libraries, such as Pandas.
+
+There is a link at the top of the Jupyter Notebook to open it in Google Colab.
 
 In the notebook, there are text boxes before each coding line explaining and justifying the decisions made. 
 
