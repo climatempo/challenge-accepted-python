@@ -3,11 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import xarray as xr
-import seaborn as sns
 import cartopy
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-#%matplotlib inline
+#%matplotlib inline #uncomment if running as .ipynp 
 
 #PARAMETERS 
 #YOU SHALL CHANGE THOSE AS NEEDED
