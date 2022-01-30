@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import xarray as xr
 import seaborn as sns
+import cartopy
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
 #%matplotlib inline
 
 #PARAMETERS 
@@ -27,25 +30,33 @@ def rmseCalc_list(pred, obse):
     
 #Define Function to Plot the 2D maps #Unfinished
 
-def plotMaps(given_list):
-  plt.figure(figsize=(30,3)) 
-  
-  count = 1
-  
-  for i in range(0, len(time_points)):  
+def plotMaps(given_list): 
 
-    plt.subplot(1, 6, count)    
-    sns.heatmap(given_list[i], vmin=0, vmax=5, cmap="coolwarm")
+  lats = df_obs['lat'][:]
+  lons = df_obs['lon'][:]
+
+  for i in range(0, len(time_points)):    
+    ax = plt.axes(projection=ccrs.PlateCarree())
+
+    plt.contourf(lons, lats, given_list[i], 60,
+             transform=ccrs.PlateCarree(), cmap="coolwarm")
+    
+    
+    states_provinces = cfeature.NaturalEarthFeature(
+        category='cultural',
+        name='admin_1_states_provinces_lines',
+        scale='50m',
+        facecolor='none')
+    
+    ax.add_feature(cfeature.LAND)
+    ax.add_feature(cfeature.COASTLINE)
+    ax.add_feature(states_provinces, edgecolor='black')
+
+    ax.coastlines()
     
     plt.title(time_points[i])
-    plt.axis('off')
-    if count < 6: #increase count 1 each loop till count reach 6, that way we will have 6 images each row, and as many rows as needed 
-        count = count + 1
-    else:
-        count = 1 #reset count to 0  
-        plt.savefig(path_results+f'{i}_2D_mapRMSE.png')      
-        plt.show()#show images when count reach 6
-        plt.figure(figsize=(30,3))
+    plt.savefig(path_results+f'{i}_2D_mapRMSE.png')      
+    plt.show()
 
 #_________________________________
 
