@@ -70,13 +70,13 @@ time_points = pd.date_range(time_start, time_stop, freq=f'{freq_hours}H') #Still
 result_rmse=[] #create empty list to store calculated rmse
 
 #Iterate values in our datasets and for each value call rmseCalc_list function, saving calculated value to result_rmse 
-#We are iterating thought a range of 0 to lenght of time_points (wich should be 12 for our dataset)
+#We are iterating throught a range of 0 to lenght of time_points (wich should be 12 for our dataset)
 #Multiplying 'i' by freq_hours to get the data spaced 6 Hours apart.
-
+#Other methods were tested, that one can generalise better for other needs
 for i in range(0,len(time_points)):
     i = i*freq_hours
-    rmse = rmseCalc_list(df_for['t2m'][i:i+6],     
-                    df_obs['temperatura'][i:i+6])     
+    rmse = rmseCalc_list(df_for['t2m'][i:i+freq_hours],     
+                    df_obs['temperatura'][i:i+freq_hours])     
     result_rmse.append(rmse)
 
 rmse_SP =[]
@@ -101,5 +101,5 @@ plotMaps(result_rmse)
 #Write project.md for github
 #Improve Maps, show geographical area with borders. (Cartopy? Basemap? Other?)
 #Write NetCDF file with calculated RMSE
-#Encasulate app with Flask?
+#Encapsulate app with Flask?
 ##################################################################################
