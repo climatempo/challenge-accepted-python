@@ -14,7 +14,7 @@ path = '' #Folder/Path Where the files are located
 path_results = '' #Folder/Path to save results, maps and graphs
 
 #Declare needed variables 
-freq_hours = 6  #define time interval
+freq_hours = 6  #define time interval in hours
 
 #_________________________________
 
