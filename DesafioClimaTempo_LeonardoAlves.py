@@ -12,7 +12,7 @@ ForecastDS = netCDF.Dataset(ForecastFile, 'r')
 ForecastLat = ForecastDS.variables['lat'][:]
 ForecastLon = ForecastDS.variables['lon'][:]
 ForecastTime = ForecastDS.variables['time'][:]
-ForecastT2m = (ForecastDS.variables['t2m'][:])
+ForecastT2m = ForecastDS.variables['t2m'][:]
 #Convertendo Kelvin para Celsius
 ForecastT2mC = ForecastT2m
 for i in range(len(ForecastT2m)):
@@ -27,6 +27,7 @@ ObservationLon = ObservationDS.variables['lon'][:]
 ObservationTime = ObservationDS.variables['time'][:]
 ObservationTemperatura = ObservationDS.variables['temperatura'][:]
 
+#Função para realizar o cálculo de forma recursiva
 def CalcularRMSE(FC, OB, Periodo=6, Recursivo=True):
     ResultadoRMSE= np.zeros((12,25,37))
     auxResultadoRMSE= np.zeros((72,25,37))
@@ -47,4 +48,29 @@ def CalcularRMSE(FC, OB, Periodo=6, Recursivo=True):
                 ResultadoRMSEsq[i,j,k]=np.sqrt(ResultadoRMSE[i,j,k])
     return(ResultadoRMSEsq)
 
+#Função para salvar os dados processados em arquivo
+def SalvarNetCDFFile (SalvarArray):
+    #Criando o FileDescriptor
+    ArqSaida = './LeonardoAlves_Calculo.nc'
+    ArqSaidaDS = netCDF.Dataset(ArqSaida, 'w', format='NETCDF4')
+    
+    PeriodoDim = ArqSaidaDS.createDimension('PeriodoDim', 12)
+    RMSELatDim = ArqSaidaDS.createDimension('RMSELatDim', 25)
+    RMSELonDim = ArqSaidaDS.createDimension('RMSELonDim', 37)
+    
+    PeriodoVar = ArqSaidaDS.createVariable('PeriodoDim', 'f4', ('PeriodoDim', ))
+    RMSELatVar = ArqSaidaDS.createVariable('RMSELatDim', 'f4', ('RMSELatDim', ))
+    RMSELonVar = ArqSaidaDS.createVariable('RMSELonDim', 'f4', ('RMSELonDim', ))
+    RMSEValorVar = ArqSaidaDS.createVariable('RMSEValorVar', 'f4', ('PeriodoDim', 'RMSELatDim', 'RMSELonDim', ))
+    RMSEValorVar.units = 'Celsius'
+    
+    RMSEValorVar[:] = SalvarArray[:]
+        
+    ArqSaidaDS.close()
+
+#Showtime - Executando o código
+
 Calculo = CalcularRMSE(ForecastT2mC, ObservationTemperatura)
+
+SalvarNetCDFFile(Calculo)
+
