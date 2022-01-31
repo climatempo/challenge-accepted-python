@@ -34,3 +34,6 @@ Bons conhecimentos em:
 6. Feito o push do código para o GitHub
 7. Preenchido a planilha
 
+### Informações para a correta execução
+1. Usar o Python3.9
+2. Instalar o Numpy 1.20.3 e netCDF4 1.5.7
