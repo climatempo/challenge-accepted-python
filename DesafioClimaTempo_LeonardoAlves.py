@@ -1,7 +1,7 @@
 import numpy as np
 import netCDF4 as netCDF
 import matplotlib.pyplot as matplot
-from mpl_toolkits.basemap import Basemap, addcyclic, shiftgrid
+from mpl_toolkits.basemap import Basemap
 
 #Configurações
 ForecastFile = './forecast.nc'
@@ -68,9 +68,43 @@ def SalvarNetCDFFile (SalvarArray):
         
     ArqSaidaDS.close()
 
+#Plotando os gráficos
+def PlotarGrapth(IndiceRMSE, Coordenadas):
+    lons = Coordenadas.variables['lon'][:]
+    lats = Coordenadas.variables['lat'][:]
+    mp = Basemap(projection = 'merc',llcrnrlat=-40,urcrnrlat=10,\
+            llcrnrlon=-90,urcrnrlon=-30,lat_ts=20, resolution='c')
+    lon, lat = np.meshgrid(lons, lats)
+    x,y = mp(lon, lat)
+      
+    periodos = np.arange(0,11,1)
+    
+    for i in periodos:   
+        
+        mp.drawcoastlines()
+        mp.drawcountries()
+        mp.drawmapboundary(fill_color='aqua')
+        mp.drawparallels(np.arange(-90.,91.,30.))
+        mp.drawmeridians(np.arange(-180.,181.,60.))
+        mp.fillcontinents(color='peru',lake_color='aqua')
+        
+        cs = mp.pcolor(x, y, np.squeeze(IndiceRMSE[i,:,:]), cmap = 'jet')
+        cbar = mp.colorbar(cs, location='right', pad='10%')
+        PeriodoTela = i+1
+        matplot.title('Distribuição no período ' + str(PeriodoTela))
+        matplot.clim(10,0)
+        #matplot.savefig(r'.\\' + str(PeriodoTela)+'.jpg')
+        matplot.show()
+        #matplot.clf()
+    
+
 #Showtime - Executando o código
 
 Calculo = CalcularRMSE(ForecastT2mC, ObservationTemperatura)
 
 SalvarNetCDFFile(Calculo)
+
+PlotarGrapth(Calculo, ObservationDS)
+
+
 
