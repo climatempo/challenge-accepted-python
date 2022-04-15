@@ -2,16 +2,16 @@
 
 
 
-### Documentação teste Clima tempo
+## Documentação teste Clima tempo
 
 ## Arquivos usados:
 
 # Anaconda, jupyter notebook 
 
 
-### Bibliotecas usadas :
+# Bibliotecas usadas :
 
-# matpolib, xarray, numpy, pandas. Estas bibliotecas deverão ser instaladas. 
+# matpolib, xarray, numpy, pandas, cartopy. Estas bibliotecas deverão ser instaladas. 
 
 ## Execução 
 
