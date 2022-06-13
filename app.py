@@ -3,7 +3,6 @@
 
 import netCDF4 as nc
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 import os
 
@@ -36,10 +35,19 @@ class Challenge():
 
     def plot(self):
 
-        sao_paulo = self.rmse[:, 8, 26]
-        print(sao_paulo)
+        fig, ax = plt.subplots()
 
-        # TODO
+        # Gráfico RMSE para São Paulo
+
+        sao_paulo = self.rmse[:, 8, 26]
+        interval = np.array([i for i in range(0, self.ninterval)]) + 1
+
+        ax.plot(interval, sao_paulo)
+        ax.set_title('Série Temporal - RMSE São Paulo')
+        ax.set_xlabel('Período')
+        ax.set_ylabel('RMSE')
+
+        plt.show()
 
 pred_file = os.path.abspath('.') + '/forecast.nc'
 obs_file = os.path.abspath('.') + '/observation.nc'
