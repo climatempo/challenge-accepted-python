@@ -6,24 +6,24 @@ Para executar este software é necessário instalar o `TKinter` e o `Virtualenv`
 
 Para instalar o TKinter e o Virtualenv digite os seguintes comandos no terminal:
 
-    ```
-    $ sudo apt install python3-tk
-    $ sudo apt install python3-venv
-    ```
+  ```
+  $ sudo apt install python3-tk
+  $ sudo apt install python3-venv
+  ```
 
 Após concluir estas instalações, clone este repositório e acesse o seu diretório no terminal. No diretório deste software, digite os seguintes comandos:
 
-    ```
-    $ python3 -m venv venv
-    $ source venv/bin/activate
-    $ python3 -m pip install -r requirements.txt
-    ```
+  ```
+  $ python3 -m venv venv
+  $ source venv/bin/activate
+  $ python3 -m pip install -r requirements.txt
+  ```
 
 Os comandos acima irão criar um ambiente virtual, ativar este ambiente e então instalar as bibliotecas. Após a instalação das bibliotecas, será possível executar este software da seguinte forma:
 
-    ```
-    $ python app.py
-    ```
+  ```
+  $ python app.py
+  ```
 
 O software irá ler os arquivos NetCDF, calcular os índices RMSE, plotar o gráfico e mapas, e salvar os índices RMSE no arquivo `rmse.nc`.
 
