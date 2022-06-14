@@ -74,42 +74,42 @@ class Challenge():
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period1)
         ax.set_title('RMSE São Paulo - Período 1')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period2)
         ax.set_title('RMSE São Paulo - Período 2')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period3)
         ax.set_title('RMSE São Paulo - Período 3')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period4)
         ax.set_title('RMSE São Paulo - Período 4')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period5)
         ax.set_title('RMSE São Paulo - Período 5')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period6)
         ax.set_title('RMSE São Paulo - Período 6')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
@@ -123,38 +123,62 @@ class Challenge():
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period8)
         ax.set_title('RMSE São Paulo - Período 8')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period9)
         ax.set_title('RMSE São Paulo - Período 9')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period10)
         ax.set_title('RMSE São Paulo - Período 10')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period11)
         ax.set_title('RMSE São Paulo - Período 11')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period12)
         ax.set_title('RMSE São Paulo - Período 12')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         plt.show()
+
+    def save_rmse_data(self):
+
+        rmse_file = os.path.abspath('.') + '/rmse.nc'
+        rmse_ds = nc.Dataset(rmse_file, 'w', format='NETCDF4')
+
+        rmse_group = rmse_ds.createGroup('RMSE_group')
+
+        rmse_group.createDimension('lat', self.nlat)
+        rmse_group.createDimension('lon', self.nlon)
+        rmse_group.createDimension('time', self.ninterval)
+
+        lat = rmse_group.createVariable('lat', 'f4', 'lat')
+        lon = rmse_group.createVariable('lon', 'f4', 'lon')
+        time = rmse_group.createVariable('time', 'i4', 'time')
+        rmse = rmse_group.createVariable('rmse', 'f4', ('time', 'lat', 'lon'))
+
+        lat[:] = self.lat
+        lon[:] = self.lon
+        time[:] = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+        rmse[:] = self.rmse
+
+        print(rmse_ds.groups)
+        rmse_ds.close()
 
 if __name__ == '__main__':
 
@@ -167,4 +191,5 @@ if __name__ == '__main__':
     ch = Challenge(pred_ds, obs_ds)
     ch.calculate_rmse()
     ch.plot()
+    ch.save_rmse_data()
 
