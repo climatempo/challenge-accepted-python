@@ -39,3 +39,5 @@ Dentro do escopo da estrutura condicional `if __name__ == '__main__':` é feito 
 
 Estas instruções foram feitas considerando a utilização de distribuições `Linux` derivadas do `Ubuntu`. Caso o leitor esteja utilizando outra distribuição, adapte a instalação do `TKinter` e do `Virtualenv` de acordo com a distribuição utilizada.
 
+Caso o leitor não consiga executar este software, a pasta `img` contém as imagens do gráfico e dos mapas resultantes da execução deste software.
+
