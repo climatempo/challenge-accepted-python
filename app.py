@@ -116,7 +116,7 @@ class Challenge():
         brasil_map.plot(ax=ax)
         ax.scatter(x, y, c='#000000', s=period7)
         ax.set_title('RMSE São Paulo - Período 7')
-        ax.set_xlabel('Longetude')
+        ax.set_xlabel('Longitude')
         ax.set_ylabel('Latitude')
 
         fig, ax = plt.subplots()
