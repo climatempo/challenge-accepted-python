@@ -4,6 +4,9 @@ import netCDF4 as nc
 import pandas as pd
 import os
 
+import netCDF4 as nc
+import pandas as pd
+
 def read_netcdf_to_dataframe(file_path, lines=None):
     """
     Read data from a NetCDF file and convert it into a pandas DataFrame.
@@ -25,13 +28,21 @@ def read_netcdf_to_dataframe(file_path, lines=None):
 
     data = nc.Dataset(file_path, mode='r')
 
+    # Getting all variable names
+    variable_names = list(data.variables.keys())
+
+    data_dict = {}
+
     if lines is not None:
-        df = pd.DataFrame(data.variables['variable_name'][:lines])
+        for var_name in variable_names:
+            data_dict[var_name] = data.variables[var_name][:lines]
     else:
-        df = pd.DataFrame(data.variables['variable_name'][:])
+        for var_name in variable_names:
+            data_dict[var_name] = data.variables[var_name][:]
 
     data.close()
-    return df
+    return pd.DataFrame(data_dict)
+
 
 
 def write_dataframe_to_netcdf(df, file_path, variable_name='variable_name'):
@@ -79,10 +90,17 @@ def write_dataframe_to_netcdf(df, file_path, variable_name='variable_name'):
 
 
 if __name__ == '__main__':
-    data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+    # Example usage
+    data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]} # Create a sample DataFrame
     df = pd.DataFrame(data)
-    write_dataframe_to_netcdf(df, 'output.nc', variable_name='my_variable')
+    file_name = 'test.nc'
+    write_dataframe_to_netcdf(df, file_name, variable_name='my_variable') # Write the DataFrame to a NetCDF file
 
-    df1 = read_netcdf_to_dataframe('output.nc', lines=100)
+    df1 = read_netcdf_to_dataframe(file_name, lines=100) # Read the NetCDF file into a DataFrame
 
-    print(df==df1)
+    print(df) # Check if the DataFrames are equal
+    print(df1)
+
+    # Deleting the file 'test.nc'
+    if os.path.exists(file_name):
+        os.remove(file_name)
