@@ -33,10 +33,10 @@ def read_netcdf_to_dataframe(file_path, lines=None):
 
     if lines is not None:
         for var_name in variable_names:
-            data_dict[var_name] = data.variables[var_name][:lines]
+            data_dict[var_name] = data.variables[var_name][:lines].data
     else:
         for var_name in variable_names:
-            data_dict[var_name] = data.variables[var_name][:]
+            data_dict[var_name] = data.variables[var_name][:].data
 
     data.close()
     return pd.DataFrame(data_dict)
