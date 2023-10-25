@@ -4,8 +4,6 @@ import netCDF4 as nc
 import pandas as pd
 import os
 
-import netCDF4 as nc
-import pandas as pd
 
 def read_netcdf_to_dataframe(file_path, lines=None):
     """
@@ -98,8 +96,10 @@ if __name__ == '__main__':
 
     df1 = read_netcdf_to_dataframe(file_name, lines=100) # Read the NetCDF file into a DataFrame
 
-    print(df) # Check if the DataFrames are equal
-    print(df1)
+    if df.equals(df1):
+        print("Write and read are a success.")
+    else:
+        print("Either write or read functions are making a mistake.")
 
     # Deleting the file 'test.nc'
     if os.path.exists(file_name):
