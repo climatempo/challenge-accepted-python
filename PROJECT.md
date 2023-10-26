@@ -38,8 +38,9 @@ Depedencies:
 - netCDF4 (version 1.6.2)
 - matplotlib (version 3.7.2)
 
-## Installation
+Certainly! Here's the modified guide with an additional section for more information about creating a Conda environment:
 
+## Installation
 
 ### For Windows:
 
@@ -55,7 +56,14 @@ Depedencies:
      cd your_project
      ```
 
-3. **Install the required dependencies:**
+3. **Create and activate a conda virtual environment:**
+   - In the CMD, use the following commands:
+     ```sh
+     conda create --name your_env_name
+     conda activate your_env_name
+     ```
+
+4. **Install the required dependencies:**
    - Use Command Prompt (CMD) to execute the following command:
      ```sh
      pip install -r requirements.txt
@@ -75,11 +83,21 @@ Depedencies:
      cd your_project
      ```
 
-3. **Install the required dependencies:**
+3. **Create and activate a conda virtual environment:**
+   - In the terminal, use the following commands:
+     ```sh
+     conda create --name your_env_name
+     conda activate your_env_name
+     ```
+
+4. **Install the required dependencies:**
    - In the terminal, use the following command:
      ```sh
      pip install -r requirements.txt
      ```
+
+**More information about Conda environments:**
+   - For more information about Conda and creating virtual environments, you can visit [the official Conda website](https://conda.io/miniconda.html).
 
 ## Usage
 
