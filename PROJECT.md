@@ -1,4 +1,4 @@
-# São Paulo Weather Forecast RSME
+# São Paulo Weather Forecast RSME From netCDF File
 
 
 ## Table of Contents
@@ -8,15 +8,15 @@
 3. [Requirements](#requirements)
 4. [Installation](#installation)
 5. [Usage](#usage)
-6. [Results](#results)
-7. [Contributing](#contributing)
-8. [Contact](#contact)
-9. [License](#license)
+6. [Contact](#contact)
+7. [License](#license)
 
 ## Overview
 
 **Disclaimer**
 This repository is part of the technical interview for StormGeo Jr. Data Engineer position. 
+
+
 
 ## Challenge
 The challenge includes: 
@@ -33,6 +33,7 @@ Python version:
 - Python (version 3.11.5)
 
 Depedencies:
+
 - pandas (version 2.1.1)
 - numpy (version 1.26.0)
 - netCDF4 (version 1.6.2)
@@ -52,7 +53,7 @@ Depedencies:
 2. **Navigate to the project directory:**
    - Open Command Prompt (CMD) and use the following command:
      ```sh
-     cd your_project
+     cd challenge-accepted-python
      ```
 
 3. **Create and activate a conda virtual environment:**
@@ -79,7 +80,7 @@ Depedencies:
 2. **Navigate to the project directory:**
    - In the terminal, use the following command:
      ```sh
-     cd your_project
+     cd challenge-accepted-python
      ```
 
 3. **Create and activate a conda virtual environment:**
@@ -100,8 +101,21 @@ Depedencies:
 
 ## Usage
 
-## Results
+To run the project, follow these simple steps:
 
+1. **Ensure you have followed the [**installation steps**](#installation) above.**
+2. **Open a terminal or command prompt**.
+3. **Navigate to the project directory**.
+   ```sh
+   cd challenge-accepted-python
+   ```
+4. **Run the following command**:
+  ```sh
+  python main.py
+  ```
+Running this command will execute the main script. Please ensure that you have the necessary dependencies installed before running the script.
+
+During execution, you'll see the Root Mean Square Error (RMSE) for every 6 hours displayed in the terminal. Additionally, two time series graphs will be generated, showing the observed temperature versus predicted temperature, as well as the forecast error over time. These visualizations will provide insights into the performance of the forecasting model.
 
 ## Contact
 
