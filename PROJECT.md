@@ -102,7 +102,6 @@ Depedencies:
 
 ## Results
 
-## Contributing
 
 ## Contact
 
@@ -115,6 +114,6 @@ For any inquiries or feedback regarding this project, please feel free to reach 
 
 You can also open an issue on the [project's GitHub repository](https://github.com/luizamfsantos/challenge-accepted-python/issues) for any bug reports, feature requests, or general discussions related to the project.
 
-
-
 ## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
