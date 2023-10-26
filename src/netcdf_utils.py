@@ -73,14 +73,13 @@ def read_netcdf_to_dataframe(file_name, city_coordinates, temp_key = None, lines
 
 
 
-def write_dataframe_to_netcdf(df, file_path, variable_name='variable_name'):
+def write_dataframe_to_netcdf(df, file_path):
     """
     Write a pandas DataFrame to a NetCDF file.
 
     Parameters:
     df (pandas.DataFrame): The DataFrame to be written to the NetCDF file.
     file_path (str): The path to the output NetCDF file.
-    variable_name (str, optional): The name of the NetCDF variable. Default is 'variable_name'.
 
     Returns:
     None
@@ -93,7 +92,7 @@ def write_dataframe_to_netcdf(df, file_path, variable_name='variable_name'):
     Example:
     >>> data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
     >>> df = pd.DataFrame(data)
-    >>> write_dataframe_to_netcdf(df, 'output.nc', variable_name='my_variable')
+    >>> write_dataframe_to_netcdf(df, 'output.nc')
     """
 
     if os.path.exists(file_path):
@@ -122,7 +121,7 @@ if __name__ == '__main__':
     data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]} # Create a sample DataFrame
     df = pd.DataFrame(data)
     file_name = 'test.nc'
-    write_dataframe_to_netcdf(df, file_name, variable_name='my_variable') # Write the DataFrame to a NetCDF file
+    write_dataframe_to_netcdf(df, file_name) # Write the DataFrame to a NetCDF file
     # Deleting the file 'test.nc'
     if os.path.exists(file_name):
         os.remove(file_name)
