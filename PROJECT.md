@@ -4,27 +4,24 @@
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Challenge](#challenge)
-3. [Requirements](#requirements)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contact](#contact)
-7. [License](#license)
+2. [Requirements](#requirements)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contact](#contact)
+6. [License](#license)
 
 ## Overview
 
 **Disclaimer**
-This repository is part of the technical interview for StormGeo Jr. Data Engineer position. 
+*This repository is part of the technical interview for StormGeo Jr. Data Engineer position.* 
 
+The main objective of this project is to assess the accuracy of weather forecasts using netCDF4 files for the time period between April 14, 2018, and April 17, 2018 for the city of Sao Paulo. The project aims to generate time series visualizations of observed temperature and forecasted temperature data and calculate Root Mean Square Error (RSME) values. 
 
+The primary deliverables of this project include detailed graphical representations showcasing the forecasted and observed temperature trends, as well as the calculated RSME values. The project generates two significant output files, namely 'output.nc' and 'output_6hrs.nc,' which capture the errors over time and errors for every 6-hour period, respectively.
 
-## Challenge
-The challenge includes: 
-  - read two files NetCDF with temperature data, forecasted and observed
-  - calculate Root Mean Square Error (RSME) for each 6 hour interval
-  - plot 2D maps (x: index of the period, y: time series values)
-  - create this file describing installation and usage
-  - write the results in a NetCDF file 
+This project also presents an opportunity to understand the netCDF4 file structure, which might initially present a learning curve. However, once the structure is comprehended, navigating and extracting relevant information becomes more straightforward. For those unfamiliar with this file type, the project documentation provides insights and recommendations for understanding its unique structure and leveraging it effectively within the project's context.
+
+Additionally, functions that can be found in the src folder are made so that they can easily be adapted for other file sizes and for analysis of other cities. Each function has extensive documentation for ease of use. 
 
 ## Requirements
 
