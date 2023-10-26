@@ -7,10 +7,7 @@ sys.path.append(os.path.abspath('.'))
 
 import unittest
 from src.data_utils import time_to_datetime, celsius_to_kelvin, rse, rmse_6hrs
-
-import unittest
 import pandas as pd
-from datetime import datetime
 
 class TestTimeToDatetime(unittest.TestCase):
 
