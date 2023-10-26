@@ -1,5 +1,6 @@
 import sys
 import os
+import numpy as np
 
 # Add the path to your project directory
 sys.path.append(os.path.abspath('.'))
@@ -40,6 +41,23 @@ class TestCelsiusToKelvin(unittest.TestCase):
         self.assertAlmostEqual(celsius_to_kelvin(-40), 233.15)
         self.assertAlmostEqual(celsius_to_kelvin(-273.15), 0.0)
         self.assertAlmostEqual(celsius_to_kelvin(-100), 173.15)
+
+class TestRSE(unittest.TestCase):
+
+    def test_rse_values(self):
+        df = pd.DataFrame({'y': [1, 2, 3, 4, 5],
+                           'pred': [1, 3, 2, 2, 4]})
+        result = rse(df)
+        expected = pd.Series([0., 1., 1., 2., 1.])
+        np.testing.assert_array_almost_equal(result, expected, decimal=2)
+
+    def test_rse_with_custom_columns(self):
+        df = pd.DataFrame({'obs': [1, 2, 3, 4, 5],
+                           'forecast': [1, 3, 2, 2, 4]})
+        result = rse(df, y_col="obs", pred_col="forecast")
+        expected = pd.Series([0., 1., 1., 2., 1.])
+        np.testing.assert_array_almost_equal(result, expected, decimal=2)
+
 
 if __name__ == '__main__':
     unittest.main()
