@@ -1,4 +1,4 @@
-pandas
-numpy
-netCDF4
-matplotlib
+pandas==2.1.1
+numpy==1.26.0
+netCDF4==1.6.2
+matplotlib==3.7.2
