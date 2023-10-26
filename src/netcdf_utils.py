@@ -129,26 +129,43 @@ def time_to_datetime(time, reference_date='2018-04-14'):
     time = pd.to_timedelta(time, unit='h')
     return pd.to_datetime(time + pd.to_datetime(reference_date))
 
+def celsius2kelvin(temp):
+    """
+    Convert a temperature in Celsius to Kelvin.
+
+    Parameters:
+    temp (float): The temperature in Celsius.
+
+    Returns:
+    float: The temperature in Kelvin.
+
+    Example:
+    >>> celsius2kelvin(0)
+    273.15
+    """
+    return temp + 273.15
+
 if __name__ == '__main__':
     # Example usage
-    data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]} # Create a sample DataFrame
-    df = pd.DataFrame(data)
-    file_name = 'test.nc'
-    write_dataframe_to_netcdf(df, file_name) # Write the DataFrame to a NetCDF file
-    # Deleting the file 'test.nc'
-    if os.path.exists(file_name):
-        os.remove(file_name)
+    # data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]} # Create a sample DataFrame
+    # df = pd.DataFrame(data)
+    # file_name = 'test.nc'
+    # write_dataframe_to_netcdf(df, file_name) # Write the DataFrame to a NetCDF file
+    # # Deleting the file 'test.nc'
+    # if os.path.exists(file_name):
+    #     os.remove(file_name)
     
     # Using the read_netcdf_to_dataframe function to the "observation.nc" file
     file_name = 'data/observation.nc'
     city_coordinates = (8,26)
     df = read_netcdf_to_dataframe(file_name, city_coordinates)
+    df["time"] = time_to_datetime(df["time"])
+    df["temperature"] = df["temperature"].apply(celsius2kelvin)
     print(df.head())
 
     # Using the read_netcdf_to_dataframe function to the "forecast.nc" file
-    file_name = 'data/forecast.nc'
-    city_coordinates = (8,26)
-    df = read_netcdf_to_dataframe(file_name, city_coordinates)
-    print(df.head())
-    df["time"] = time_to_datetime(df["time"])
-    print(df.head())
+    # file_name = 'data/forecast.nc'
+    # city_coordinates = (8,26)
+    # df = read_netcdf_to_dataframe(file_name, city_coordinates)
+    # df["time"] = time_to_datetime(df["time"])
+    # print(df.head())
