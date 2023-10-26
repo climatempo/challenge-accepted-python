@@ -28,10 +28,15 @@ The challenge includes:
 
 ## Requirements
 
-To run this project, I am using:
+Python version:
 
-- Python (version 3.10.0)
-- Python packages on file requirements.txt
+- Python (version 3.11.5)
+
+Depedencies:
+- pandas (version 2.1.1)
+- numpy (version 1.26.0)
+- netCDF4 (version 1.6.2)
+- matplotlib (version 3.7.2)
 
 ## Installation
 
