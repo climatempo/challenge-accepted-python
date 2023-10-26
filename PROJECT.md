@@ -38,7 +38,6 @@ Depedencies:
 - netCDF4 (version 1.6.2)
 - matplotlib (version 3.7.2)
 
-Certainly! Here's the modified guide with an additional section for more information about creating a Conda environment:
 
 ## Installation
 
