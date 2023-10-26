@@ -29,6 +29,17 @@ class TestTimeToDatetime(unittest.TestCase):
         result = time_to_datetime(df['time'], reference_date='2020-01-01')
         expected = pd.Series(pd.to_datetime(['2020-01-01 00:00:00', '2020-01-01 01:00:00', '2020-01-01 02:00:00']),name="time")
         pd.testing.assert_series_equal(result, expected)
+    
+class TestCelsiusToKelvin(unittest.TestCase):
+    def test_celsius_to_kelvin_positive(self):
+        self.assertAlmostEqual(celsius_to_kelvin(0), 273.15)
+        self.assertAlmostEqual(celsius_to_kelvin(100), 373.15)
+        self.assertAlmostEqual(celsius_to_kelvin(37), 310.15)
+
+    def test_celsius_to_kelvin_negative(self):
+        self.assertAlmostEqual(celsius_to_kelvin(-40), 233.15)
+        self.assertAlmostEqual(celsius_to_kelvin(-273.15), 0.0)
+        self.assertAlmostEqual(celsius_to_kelvin(-100), 173.15)
 
 if __name__ == '__main__':
     unittest.main()
