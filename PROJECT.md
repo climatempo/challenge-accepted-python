@@ -7,8 +7,9 @@
 2. [Requirements](#requirements)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Contact](#contact)
-6. [License](#license)
+5. [Next Steps](#next-steps)
+6. [Contact](#contact)
+7. [License](#license)
 
 ## Overview
 
@@ -113,6 +114,15 @@ To run the project, follow these simple steps:
 Running this command will execute the main script. Please ensure that you have the necessary dependencies installed before running the script.
 
 During execution, you'll see the Root Mean Square Error (RMSE) for every 6 hours displayed in the terminal. Additionally, two time series graphs will be generated, showing the observed temperature versus predicted temperature, as well as the forecast error over time. These visualizations will provide insights into the performance of the forecasting model.
+
+## Next Steps
+
+Continuous improvement is key to the success of any project. While this project has made significant strides, there are several areas where enhancements can be made to further refine its capabilities. Some of the immediate next steps include:
+
+- Writing comprehensive unit tests for the netcdf_utils module to ensure robust functionality and stability. In particular, resolving issues related to generating mock data for testing purposes will be a priority. This involves delving deeper into the intricacies of the netCDF4 data format.
+
+- Expanding the scope of data visualization by incorporating additional graphs to facilitate a more comprehensive analysis of forecast errors. This may involve exploring variance analysis and other statistical tools to gain deeper insights into the performance of the forecasting model.
+
 
 ## Contact
 
