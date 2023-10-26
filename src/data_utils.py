@@ -42,9 +42,9 @@ def rse(df, y_col = "y", pred_col = "pred"):
     df (pandas.DataFrame): Dataframe with columns y and pred.
 
     Returns:
-    pandas.Series: Root squared error for every row in the dataframe.
+    pandas.Series: Absolute error for every row in the dataframe.
     """
-    return np.sqrt(((df[y_col] - df[pred_col]) ** 2))
+    return np.abs(df[y_col] - df[pred_col])
 
 def rmse_6hrs(df, y_col = "y", pred_col = "pred"):
     """
