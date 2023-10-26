@@ -58,6 +58,25 @@ class TestRSE(unittest.TestCase):
         expected = pd.Series([0., 1., 1., 2., 1.])
         np.testing.assert_array_almost_equal(result, expected, decimal=2)
 
+class TestRMSE(unittest.TestCase):
+
+    def test_rmse_6hrs(self):
+        df = pd.DataFrame({
+            "time": pd.date_range('2023-10-25', periods=24, freq='H'),
+            "y": np.random.randint(1, 10, 24),
+            "pred": np.random.randint(1, 10, 24)
+        })
+        result = rmse_6hrs(df)
+        self.assertIsInstance(result, pd.Series)
+
+    def test_rmse_6hrs_custom_columns(self):
+        df = pd.DataFrame({
+            "time": pd.date_range('2023-10-25', periods=24, freq='H'),
+            "y_values": np.random.randint(1, 10, 24),
+            "pred_values": np.random.randint(1, 10, 24)
+        })
+        result = rmse_6hrs(df, y_col="y_values", pred_col="pred_values")
+        self.assertIsInstance(result, pd.Series)
 
 if __name__ == '__main__':
     unittest.main()
