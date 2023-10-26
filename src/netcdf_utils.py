@@ -5,41 +5,71 @@ import pandas as pd
 import os
 
 
-def read_netcdf_to_dataframe(file_path, lines=None):
+def read_netcdf_to_dataframe(file_name, city_coordinates, temp_key = None, lines=None):
     """
     Read data from a NetCDF file and convert it into a pandas DataFrame.
+    Data is either observed or forecasted temperature data.
+    Temperature column in observed data is stored in "temperatura"
+    Temperature column in forecasted data is stored in "t2m"
 
     Parameters:
-    file_path (str): The path to the NetCDF file.
+    file_name (str): The path to the NetCDF file.
     lines (int or None, optional): The number of lines to read from the NetCDF file. If None, all lines will be read.
+    city_coordinates (tuple): The latitude and longitude of the city to be read from the NetCDF file.
+    temp_key (str): The name of the temperature column in the NetCDF file.
 
     Returns:
     pandas.DataFrame: A pandas DataFrame containing the data from the NetCDF file.
 
     Raises:
     FileNotFoundError: If the specified file_path does not exist.
-    KeyError: If 'variable_name' is not present in the NetCDF file.
+    KeyError: If the temperature column name or 'time' is not present in the NetCDF file.
 
     Example:
-    >>> df = read_netcdf_to_dataframe('example.nc', lines=100)
+    >>> df = read_netcdf_to_dataframe('example.nc', (lat, lon))
     """
+    # Open file
+    data = nc.Dataset(file_name, "r", format = "NETCDF4")
 
-    data = nc.Dataset(file_path, mode='r')
-
-    # Getting all variable names
+    # Get column names
     variable_names = list(data.variables.keys())
 
+    # Get temperature column name
+    if temp_key is None:
+        if 'temperatura' in variable_names:
+            temperature_column_name = 'temperatura'
+        elif 't2m' in variable_names:
+            temperature_column_name = 't2m'
+
+    # Check if temperature_column_name is in the file
+    if temperature_column_name not in variable_names:
+        raise KeyError("The column name is not present in the NetCDF file.")
+    
+    # Check if time is in the file
+    if 'time' not in variable_names:
+        raise KeyError("Time is not present in the NetCDF file.")
+    
+    # Create a dictionary to store the data
     data_dict = {}
 
+    # Get the time data
+    data_dict["time"] = data.variables["time"][:].data[:]
     if lines is not None:
-        for var_name in variable_names:
-            data_dict[var_name] = data.variables[var_name][:lines].data
-    else:
-        for var_name in variable_names:
-            data_dict[var_name] = data.variables[var_name][:].data
+        data_dict["time"] = data_dict["time"][:lines]
 
+    # Get the temperature data
+    data_dict['temperature'] = []
+    for i in range(len(data_dict["time"])):
+        data_dict['temperature'].append(data.variables[temperature_column_name][i].data[city_coordinates[0],city_coordinates[1]])
+        if lines is not None and i == lines-1:
+            break
+
+    # Close file
     data.close()
-    return pd.DataFrame(data_dict)
+
+    # return DataFrame
+    df = pd.DataFrame(data_dict)
+    return df
 
 
 
@@ -93,14 +123,18 @@ if __name__ == '__main__':
     df = pd.DataFrame(data)
     file_name = 'test.nc'
     write_dataframe_to_netcdf(df, file_name, variable_name='my_variable') # Write the DataFrame to a NetCDF file
-
-    df1 = read_netcdf_to_dataframe(file_name, lines=100) # Read the NetCDF file into a DataFrame
-
-    if df.equals(df1):
-        print("Write and read are a success.")
-    else:
-        print("Either write or read functions are making a mistake.")
-
     # Deleting the file 'test.nc'
     if os.path.exists(file_name):
         os.remove(file_name)
+    
+    # Using the read_netcdf_to_dataframe function to the "observation.nc" file
+    file_name = 'data/observation.nc'
+    city_coordinates = (8,26)
+    df = read_netcdf_to_dataframe(file_name, city_coordinates)
+    print(df.head())
+
+    # Using the read_netcdf_to_dataframe function to the "forecast.nc" file
+    file_name = 'data/forecast.nc'
+    city_coordinates = (8,26)
+    df = read_netcdf_to_dataframe(file_name, city_coordinates)
+    print(df.head())
