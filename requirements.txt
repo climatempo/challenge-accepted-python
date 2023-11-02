@@ -1,0 +1,10 @@
+matplotlib==3.8.1
+netCDF4==6.5
+numpy==1.24.1
+seaborn==0.13.0
+session_info==1.0.0
+IPython==8.9.0
+jupyter_client==8.0.2
+jupyter_core==5.2.0
+jupyterlab==3.5.3
+notebook==6.5.2
