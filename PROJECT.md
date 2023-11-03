@@ -58,7 +58,7 @@ ______
 
 4.3) The problem occurs because _FillValue should have the same data type as the variable it describes. The python interface checks for this. If the _FillValue and missing_value don't have the same data type, python interface tries to cast it to that type before using it to create a masked array. The problem is solved by turning off the auto conversion to masked arrays.
 
-4.4) It is possible to check that the fill value nor the missing value aren't present (not written) in t2m_forecast
+4.4) It is possible to check that the fill value nor the missing value are present (not written) in t2m_forecast
 
 #### 5) Read data from observation.nc
 
