@@ -11,7 +11,7 @@ ___
 
 I used JupyterLab and python libraries to develop the entire project. The graphs plotted are shown in the .ipynb archive and are saved as .png archives. The rmsefile.nc contains the RMSE values requested by the challenge.
 
-### Steps that have to be followed to understand this project:
+### Steps that have to be followed to execute this project:
 
 #### 1) Install the packages used by me typing this command in the terminal:
 
