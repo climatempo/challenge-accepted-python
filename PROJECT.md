@@ -88,7 +88,7 @@ ______
 
 $\text{RMSE}(f, o) = \sqrt{\bar{(f - o)^2}}$
 
-11.1) I computed two sets of values for the RMSE. The first (RMSE_matrix), computes the mean value only in the time dimension. That is, there is are RMSE values for each latitude and longitude pair, for each time interval of 6 hours. The second (RMSE_array and RMSE_sp_array), computes the mean in all dimensions. That is, there is only one RMSE value for each 6 hour interval. This approach allows vizualization of the data both in terms of location (first set) and only terms of the time interval (second set)
+11.1) I computed two sets of values for the RMSE. The first (RMSE_matrix), computes the mean value only in the time dimension. That is, there are RMSE values for each latitude and longitude pair, for each time interval of 6 hours. The second (RMSE_array and RMSE_sp_array), computes the mean in all dimensions. That is, there is only one RMSE value for each 6 hour interval. This approach allows vizualization of the data both in terms of location (first set) and only terms of the time interval (second set)
 
 #### 12) Date and time of forecast and observation datasets
 
