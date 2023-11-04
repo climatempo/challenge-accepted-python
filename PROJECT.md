@@ -48,15 +48,13 @@ ______
 
 #### 3) Check if there are missing, invalid, or not written data in forecast.nc file
 
-3.1) To indicate that data values are missing, invalid, or not written, special values are conventionally used. NetCDF data may include variable values that are not written, either on purpose or unintentionally. To detect attempts to later read unwritten data, the netCDF library initializes data with the value of a variable's _FillValue attribute (in the case of this forecast dataset) 
-
 #### 4) Access elements of forecast.nc variables
 
 4.1) Access only the information of t2m variable
 
 4.2) If you try to acess the elements of t2m variable (t2m_forecast = forecast.variables['t2m'][:,:,:]), python will give an error: missing_value not used since it cannot be safely cast to variable data type
 
-4.3) The problem occurs because _FillValue should have the same data type as the variable it describes. The python interface checks for this. If the _FillValue and missing_value don't have the same data type, python interface tries to cast it to that type before using it to create a masked array. The problem is solved by turning off the auto conversion to masked arrays.
+4.3) The problem occurs because the library tries to automatically mask bad values using metadata like the missing_value attribute. The library is ignoring the missing_value attribute for my variable because the attribute has a different type than that of the original data values. The problem is solved by turning off the auto conversion to masked arrays.
 
 4.4) It is possible to check that the fill value nor the missing value are present (not written) in t2m_forecast
 
